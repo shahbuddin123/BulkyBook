@@ -14,7 +14,9 @@ namespace BulkyBook.Areas.Customer.Controllers
     public class HomeController : Controller
     {
         
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<HomeController> _logger; 
+
+        public ILogger<HomeController> Logger => _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
