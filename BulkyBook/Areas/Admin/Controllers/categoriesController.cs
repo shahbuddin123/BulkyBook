@@ -11,11 +11,11 @@ using BulkyBook.Models;
 namespace BulkyBook.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class categoriesController : Controller
+    public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public categoriesController(ApplicationDbContext context)
+        public CategoriesController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -103,7 +103,7 @@ namespace BulkyBook.Areas.Admin.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!categoryExists(category.Id))
+                    if (!CategoryExists(category.Id))
                     {
                         return NotFound();
                     }
@@ -146,7 +146,7 @@ namespace BulkyBook.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool categoryExists(int id)
+        private bool CategoryExists(int id)
         {
             return _context.Categories.Any(e => e.Id == id);
         }

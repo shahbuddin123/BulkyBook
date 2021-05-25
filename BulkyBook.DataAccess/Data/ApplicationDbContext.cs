@@ -15,5 +15,9 @@ namespace BulkyBook.DataAccess.Data
         }
 
         public DbSet<category> Categories { get; set; }
+
+        public DbSet<Product> Products { get; set; }
+
+
     }
 }

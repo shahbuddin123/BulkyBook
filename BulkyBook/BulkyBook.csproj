@@ -26,4 +26,8 @@
     <ProjectReference Include="..\BulkyBook.Utility\BulkyBook.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Category\" />
+  </ItemGroup>
+
 </Project>

@@ -7,6 +7,7 @@ namespace BulkyBook.Models
 {
      public class category
     {
+        public string ImageUrl;
 
         [Key]
         public int Id { get; set; }
