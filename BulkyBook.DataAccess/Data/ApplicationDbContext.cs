@@ -1,4 +1,5 @@
 ﻿using BulkyBook.Models;
+using BulkyBook.Models.ViewModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,7 +17,17 @@ namespace BulkyBook.DataAccess.Data
 
         public DbSet<category> Categories { get; set; }
 
+        public DbSet<CoverType> CoverTypes { get; set; }
+
+
         public DbSet<Product> Products { get; set; }
+
+        public DbSet<ShoppingCart> ShoppingCarts { get; set; }
+
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
+
+        public DbSet<OrderDetails> OrderDetails { get; set; }
+
 
 
     }

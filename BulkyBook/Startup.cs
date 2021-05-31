@@ -1,5 +1,7 @@
 
+using BulkyBook.Areas.Admin.Controllers;
 using BulkyBook.DataAccess.Data;
+using BulkyBook.DataAccess.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +38,17 @@ namespace BulkyBook
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.ConfigureApplicationCookie(options =>
+            {
+                options.LoginPath = $"/Identity/Account/Login";
+                options.LogoutPath = $"/Identity/Account/Logout";
+                options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
+            });
+            services.AddAuthentication().AddGoogle(Options =>
+            {
+                Options.ClientId = "485412732260-k5hurpnh3v56h35n6n7ahk03tfdt3r87.apps.googleusercontent.com";
+                Options.ClientSecret = "WEnfcL-pXXJaL9NDB_KkwB32";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
